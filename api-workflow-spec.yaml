@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: weather-api
+spec:
+  entrypoint: default
+  templates:
+    - name: default
+      container:
+        image: xximjasonxx/weather-api:v2
+        resources:
+          limits:
+            memory: 32Mi
+            cpu: 100m
