@@ -12,4 +12,4 @@ RUN groupadd -g 999 appuser && \
 WORKDIR /app
 COPY --from=sdk /code/output .
 EXPOSE 80
-#ENTRYPOINT [ "dotnet", "values-api.dll" ]
+ENTRYPOINT [ "dotnet", "WeatherApi.dll" ]
