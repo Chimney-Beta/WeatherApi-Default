@@ -37,7 +37,7 @@ spec:
         - "1"
       containers:
       - name: apipod
-        image: xximjasonxx/weather-api:v4
+        image: xximjasonxx/weather-api:v5
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
