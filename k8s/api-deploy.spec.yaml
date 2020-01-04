@@ -1,0 +1,76 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    name: flux-weather
+  name: flux-weather
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+  namespace: flux-weather
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.init: regex:^3.10.*
+    fluxcd.io/tag.podinfod: semver:~2.1
+spec:
+  selector:
+    matchLabels:
+      name: api-pod
+
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+      labels:
+        name: api-pod
+      namespace: flux-weather
+    spec:
+      initContainers:
+      - name: init
+        image: alpine:3.10
+        command:
+        - sleep
+        - "1"
+      containers:
+      - name: apipod
+        image: xximjasonxx/weather-api:v9
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-svc
+  namespace: flux-weather
+spec:
+  selector:
+    name: api-pod
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 80
+    protocol: TCP
+---
+
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: api-ingress
+  namespace: flux-weather
+spec:
+  rules:
+  - host: api.weather.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: api-svc
+          servicePort: 8080
