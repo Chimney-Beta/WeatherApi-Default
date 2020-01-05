@@ -1,0 +1,64 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tekton-weather
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+  namespace: tekton-weather
+spec:
+  selector:
+    matchLabels:
+      name: api-pod
+
+  template:
+    metadata:
+      labels:
+        name: api-pod
+      namespace: tekton-weather
+    spec:
+      containers:
+      - name: apipod
+        image: xximjasonxx/tekton-weather:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-svc
+  namespace: tekton-weather
+spec:
+  selector:
+    name: api-pod
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 80
+    protocol: TCP
+
+---
+
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: api-ingress
+  namespace: tekton-weather
+spec:
+  rules:
+  - host: api.weather.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: api-svc
+          servicePort: 8080                                                                 ]
