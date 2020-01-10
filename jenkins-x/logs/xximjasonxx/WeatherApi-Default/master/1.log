@@ -1,0 +1,156 @@
+
+Showing logs for build [32mxximjasonxx-weatherapi-default-b4ndl-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-88fqp[0m
+{"level":"warn","ts":1578670496.3468573,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1578670496.3472292,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mxximjasonxx-weatherapi-default-b4ndl-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-5np99[0m
+{"level":"warn","ts":1578670497.2126243,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1578670497.2140515,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mxximjasonxx-weatherapi-default-b4ndl-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mxximjasonxx-weatherapi-default-b4ndl-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-xximjasonxx-weatherapi-default-bfqhk[0m
+{"level":"warn","ts":1578670504.355099,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1578670504.5373685,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/***********/WeatherApi-Default.git @ v0.0.1 in path /workspace/source"}
+
+Showing logs for build [32mxximjasonxx-weatherapi-default-b4ndl-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:7d22d24fda1155a719f583e83808a8b43801aee9
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mxximjasonxx-weatherapi-default-b4ndl-1[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32mxximjasonxx-weatherapi-default-b4ndl-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] Downloading base image mcr.microsoft.com/dotnet/core/sdk:3.1 
+2020/01/10 15:35:05 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0000] Error while retrieving image from cache: getting file info: stat /workspace/sha256:f11bad674813da2d0dbbfc04d60f3dacf28d421da5b2e97079ee2f041b9d4390: no such file or directory 
+[36mINFO[0m[0000] Downloading base image mcr.microsoft.com/dotnet/core/sdk:3.1 
+2020/01/10 15:35:05 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0000] Using files from context: [/workspace/source/WeatherApi.csproj] 
+[36mINFO[0m[0000] Checking for cached layer bugsummer.azurecr.io/todo/cache:78062be5b4c4ecab2eea7f4baaabeafab332abe9c25835f51fa8357410ffa22f... 
+[36mINFO[0m[0000] No cached layer found for cmd RUN dotnet restore 
+[36mINFO[0m[0000] Unpacking rootfs as cmd RUN dotnet restore requires it. 
+[36mINFO[0m[0041] Taking snapshot of full filesystem...        
+[36mINFO[0m[0055] WORKDIR /code                                
+[36mINFO[0m[0055] cmd: workdir                                 
+[36mINFO[0m[0055] Changed working directory to /code           
+[36mINFO[0m[0055] Creating directory /code                     
+[36mINFO[0m[0055] Taking snapshot of files...                  
+[36mINFO[0m[0055] Using files from context: [/workspace/source/WeatherApi.csproj] 
+[36mINFO[0m[0055] COPY *.csproj .                              
+[36mINFO[0m[0055] Taking snapshot of files...                  
+[36mINFO[0m[0055] RUN dotnet restore                           
+[36mINFO[0m[0055] cmd: /bin/sh                                 
+[36mINFO[0m[0055] args: [-c dotnet restore]                    
+  Restore completed in 489.86 ms for /code/WeatherApi.csproj.
+[36mINFO[0m[0061] Taking snapshot of full filesystem...        
+[36mINFO[0m[0062] Adding whiteout for /root/.dotnet/TelemetryStorageService/20191228081147_9780610c0ba14f7aa6329ab5d2916f5b.trn 
+[36mINFO[0m[0062] Adding whiteout for /root/.dotnet/TelemetryStorageService/20191228081147_a190679ae8dd4d69be53af40ad859ec9.trn 
+[36mINFO[0m[0073] Using files from context: [/workspace/source] 
+[36mINFO[0m[0073] Pushing layer bugsummer.azurecr.io/todo/cache:78062be5b4c4ecab2eea7f4baaabeafab332abe9c25835f51fa8357410ffa22f to cache now 
+[36mINFO[0m[0073] COPY . .                                     
+[36mINFO[0m[0073] Taking snapshot of files...                  
+[36mINFO[0m[0073] RUN dotnet publish -o output -c Release      
+[36mINFO[0m[0073] cmd: /bin/sh                                 
+[36mINFO[0m[0073] args: [-c dotnet publish -o output -c Release] 
+2020/01/10 15:36:19 pushed blob: sha256:cf675a7d36f10d637031c14ee3830eea30993cb1f8b6b69890b0ef6fe74f7bfd
+2020/01/10 15:36:19 pushed blob: sha256:eaa3a7095183547b80a85377057fb6aa8c34e579e252c73d9c69f0787c1e5743
+2020/01/10 15:36:20 bugsummer.azurecr.io/todo/cache:78062be5b4c4ecab2eea7f4baaabeafab332abe9c25835f51fa8357410ffa22f: digest: sha256:d86bc3dd763bae847b647379e6c021bbbcde9fbf3b2f3debf5a0e020fc2d2b52 size: 425
+Microsoft (R) Build Engine version 16.4.0+e901037fe for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Restore completed in 92.48 ms for /code/WeatherApi.csproj.
+  WeatherApi -> /code/bin/Release/netcoreapp3.1/WeatherApi.dll
+  WeatherApi -> /code/output/
+[36mINFO[0m[0090] Taking snapshot of full filesystem...        
+[36mINFO[0m[0101] ignoring socket 44EXK_PKAdeHrkbTzV1eYWrmRw1QvbAT_4N070GWNNY, not adding to tar 
+[36mINFO[0m[0101] ignoring socket dotnet-diagnostic-134-4428443-socket, not adding to tar 
+[36mINFO[0m[0101] Pushing layer bugsummer.azurecr.io/todo/cache:b550c006d518cbe67653d3acddbd26eacc50f740ab70771a340cd63723085a7a to cache now 
+2020/01/10 15:36:48 pushed blob: sha256:d1381c65da22fb29a61353fdc8dde309a7c95ad93a186b5b95401c9677c72362
+2020/01/10 15:36:48 pushed blob: sha256:20b48103774eb21b2280e727eb4b55cba50e0f3928a7a259cacbe02227345125
+2020/01/10 15:36:48 bugsummer.azurecr.io/todo/cache:b550c006d518cbe67653d3acddbd26eacc50f740ab70771a340cd63723085a7a: digest: sha256:2e60b1234e3f2af56cf64f0ecf420a77d615b9d3f8a514c863f77b42116719e3 size: 427
+[36mINFO[0m[0102] Storing source image from stage 0 at path /kaniko/stages/0 
+[36mINFO[0m[0150] Deleting filesystem...                       
+[36mINFO[0m[0152] Downloading base image mcr.microsoft.com/dotnet/core/aspnet:3.1 
+2020/01/10 15:37:37 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0152] Error while retrieving image from cache: getting file info: stat /workspace/sha256:29ab4251c674cae10ef48abcfce268ff248fbbcddbf201296d060fe70959a57a: no such file or directory 
+[36mINFO[0m[0152] Downloading base image mcr.microsoft.com/dotnet/core/aspnet:3.1 
+2020/01/10 15:37:38 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0152] Checking for cached layer bugsummer.azurecr.io/todo/cache:1339e1ebee54a9fd85f178b75ec6d6a1cd219533a22a025f0b8c7c2f539eb225... 
+[36mINFO[0m[0152] No cached layer found for cmd RUN groupadd -g 999 appuser &&     useradd -r -u 999 -g appuser appuser 
+[36mINFO[0m[0152] Unpacking rootfs as cmd RUN groupadd -g 999 appuser &&     useradd -r -u 999 -g appuser appuser requires it. 
+[36mINFO[0m[0166] Taking snapshot of full filesystem...        
+[36mINFO[0m[0175] RUN groupadd -g 999 appuser &&     useradd -r -u 999 -g appuser appuser 
+[36mINFO[0m[0175] cmd: /bin/sh                                 
+[36mINFO[0m[0175] args: [-c groupadd -g 999 appuser &&     useradd -r -u 999 -g appuser appuser] 
+[36mINFO[0m[0175] Taking snapshot of full filesystem...        
+[36mINFO[0m[0178] Pushing layer bugsummer.azurecr.io/todo/cache:1339e1ebee54a9fd85f178b75ec6d6a1cd219533a22a025f0b8c7c2f539eb225 to cache now 
+[36mINFO[0m[0178] WORKDIR /app                                 
+[36mINFO[0m[0178] cmd: workdir                                 
+[36mINFO[0m[0178] Changed working directory to /app            
+[36mINFO[0m[0178] Creating directory /app                      
+[36mINFO[0m[0178] Taking snapshot of files...                  
+[36mINFO[0m[0178] COPY --from=sdk /code/output .               
+[36mINFO[0m[0178] Taking snapshot of files...                  
+[36mINFO[0m[0178] EXPOSE 80                                    
+[36mINFO[0m[0178] cmd: EXPOSE                                  
+[36mINFO[0m[0178] Adding exposed port: 80/tcp                  
+[36mINFO[0m[0178] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0178] ENTRYPOINT [ "dotnet", "WeatherApi.dll" ]    
+[36mINFO[0m[0178] No files changed in this command, skipping snapshotting. 
+2020/01/10 15:38:04 pushed blob: sha256:0f53cf295c2b8d3ad6fe5d05d2f0b2776b3f859a1787f087666c6500a02aebb6
+2020/01/10 15:38:04 pushed blob: sha256:61cec6a96dc2ff8e33c6acf16d53d4d4128dcdb711dd228073817cb438b8bf94
+2020/01/10 15:38:04 bugsummer.azurecr.io/todo/cache:1339e1ebee54a9fd85f178b75ec6d6a1cd219533a22a025f0b8c7c2f539eb225: digest: sha256:ec28744505e6c9367250f6e0d2890b27dfa31cee126f5c55e618f7ec7e32741e size: 425
+2020/01/10 15:38:05 pushed blob: sha256:0f53cf295c2b8d3ad6fe5d05d2f0b2776b3f859a1787f087666c6500a02aebb6
+2020/01/10 15:38:05 pushed blob: sha256:f9422e855e6afc88a236cc255743bc7e059296fa066d1b905199886d48c85f87
+2020/01/10 15:38:05 pushed blob: sha256:62b61706cd9bab7c5038b07668cc9aa7e45d0e79db27006d5181f7e7f2bd754d
+2020/01/10 15:38:05 pushed blob: sha256:2b37c377a8cf986c2df11dd77badc2ace5fcd737755dd21ef3240478e0cc0d9a
+2020/01/10 15:38:05 pushed blob: sha256:a0c700a4469356264e761399754140b1757f9fea1fdcbba4d575bfc432bb3f5a
+2020/01/10 15:38:06 pushed blob: sha256:9584d2ef7ebe87c7daa944fb9db3eb2ec18aed3f71ad1c40b4d6d9ed460d95e5
+2020/01/10 15:38:07 pushed blob: sha256:8ec398bc03560e0fa56440e96da307cdf0b1ad153f459b52bca53ae7ddb8236d
+2020/01/10 15:38:07 pushed blob: sha256:9c72d70b702b84dfb066259a64552deb83ff52ae82ea982de29dfdfdfe41e352
+2020/01/10 15:38:08 pushed blob: sha256:8f13df7c0cb1f5037d37c5da2776b7484409b663eb64bf554a58662d09957c24
+2020/01/10 15:38:08 bugsummer.azurecr.io/***********/weatherapi-default:0.0.1: digest: sha256:465d825496b2674f6e120769287109e28134e7b215fc8ff426dd88228bb4b6f9 size: 1570
+
+Showing logs for build [32mxximjasonxx-weatherapi-default-b4ndl-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32mxximjasonxx-weatherapi-default-b4ndl-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+Converted /workspace/source/charts/weatherapi-default to an unshallow repository
+Generating change log from git ref 47cc60425f70bc90af745326e7b72eab06ac0550 => d99831009699147d9c7f1f0504ae7f5b77447db3
+Associating user x-0 in users.jenkins.io with email jfarrell@westmonroepartners.com to git GitProvider user with login -0 as emails match
+Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
+WARNING: Failed to enrich commit 7d22d24fda1155a719f583e83808a8b43801aee9 with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
+Associating user x-0 in users.jenkins.io with email jfarrell@westmonroepartners.com to git GitProvider user with login -0 as emails match
+Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
+WARNING: Failed to enrich commit 7d22d24fda1155a719f583e83808a8b43801aee9 with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
+Finding issues in commit messages using git format
+WARNING: No release found for ***********/WeatherApi-Default and tag v0.0.1 so creating a new release
+Updated the release information at https://github.com/***********/WeatherApi-Default/releases/tag/v0.0.1
+generated: /workspace/source/charts/weatherapi-default/templates/release.yaml
+Created Release weatherapi-default-0-0-1 resource in namespace **
+Updating PipelineActivity ***********-weatherapi-default-master-1 with version 0.0.1
+Updated PipelineActivities ***********-weatherapi-default-master-1 with release notes URL: https://github.com/***********/WeatherApi-Default/releases/tag/v0.0.1
+
+Showing logs for build [32mxximjasonxx-weatherapi-default-b4ndl-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Uploading chart file weatherapi-default-0.0.1.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Received 201 response: {"saved":true}
+
+Showing logs for build [32mxximjasonxx-weatherapi-default-b4ndl-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-promote[0m
+WARNING: prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/**/issues/2410
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Promoting app weatherapi-default version 0.0.1 to namespace **-staging
+Created Pull Request: https://github.com/***********/environment-parrotjust-staging/pull/2
+Added label updatebot to Pull Request https://github.com/***********/environment-parrotjust-staging/pull/2
+got git provider status pending from PR https://github.com/***********/environment-parrotjust-staging/pull/2
+got git provider status pending from PR https://github.com/***********/environment-parrotjust-staging/pull/2
+got git provider status pending from PR https://github.com/***********/environment-parrotjust-staging/pull/2
+Pull Request https://github.com/***********/environment-parrotjust-staging/pull/2 is merged at sha 07108f47a14ce530aa30263e2a271f9c289e4284
+Pull Request merged but we are not waiting for the update pipeline to complete!
+WARNING: Could not find the service URL in namespace **-staging for names weatherapi-default, **-weatherapi-default, **-staging-weatherapi-default
